@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -71,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "Body-Mass Index",
+                  "Body Mass Index",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
@@ -131,46 +130,76 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(
                   height: 25,
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    var wt = int.parse(wtController.text);
-                    var ft = int.parse(ftController.text);
-                    var inc = int.parse(inController.text);
-
-                    if (_formKey.currentState!.validate()) {
-                      var totalM = (((ft * 12) + inc) * (2.54)) / 100;
-
-                      var bmi = wt / pow(totalM, 2);
-
-                      if (bmi > 25) {
-                        msg = "You are Overweight. 🥲";
-                        _bmiColor = Colors.orange.shade500;
-                      } else if (bmi < 18) {
-                        msg = "You are Underweight. 😶";
-                        _bmiColor = Colors.red.shade500;
-                      } else {
-                        msg = "You are Healthy. 😄";
-                        _bmiColor = Colors.green.shade200;
-                      }
-
-                      setState(() {
-                        result = "Your BMI is ${bmi.toStringAsFixed(4)}";
-                      });
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.black,
-                    shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
-                    elevation: 2.0,
-                  ),
-                  child: const Text(
-                    "Calculate",
-                    style: TextStyle(
-                      fontSize: 16.0,
+                ButtonBar(
+                  alignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          wtController.text = "";
+                          ftController.text = "";
+                          inController.text = "";
+                          msg = "";
+                          result = "";
+                          _bmiColor = Colors.white;
+                        });
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.black,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(8))),
+                        elevation: 2.0,
+                      ),
+                      child: const Text(
+                        "Reset",
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                      ),
                     ),
-                  ),
+                    ElevatedButton(
+                      onPressed: () {
+                        var wt = int.parse(wtController.text);
+                        var ft = int.parse(ftController.text);
+                        var inc = int.parse(inController.text);
+
+                        if (_formKey.currentState!.validate()) {
+                          var totalM = (((ft * 12) + inc) * (2.54)) / 100;
+
+                          var bmi = wt / pow(totalM, 2);
+
+                          if (bmi > 25) {
+                            msg = "You are Overweight. 🥲";
+                            _bmiColor = Colors.orange.shade500;
+                          } else if (bmi < 18) {
+                            msg = "You are Underweight. 😶";
+                            _bmiColor = Colors.red.shade500;
+                          } else {
+                            msg = "You are Healthy. 😄";
+                            _bmiColor = Colors.green.shade200;
+                          }
+
+                          setState(() {
+                            result = "Your BMI is ${bmi.toStringAsFixed(4)}";
+                          });
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.black,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(8))),
+                        elevation: 2.0,
+                      ),
+                      child: const Text(
+                        "Calculate",
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 25,
