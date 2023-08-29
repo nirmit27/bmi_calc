@@ -26,3 +26,5 @@ A simple BMI (Body Mass Index) calculator app built using Flutter.
 2. Clone this repository:
    ```bash
    git clone https://github.com/your-username/bmi-calculator-app.git
+
+> Only for Android 13 and above.
