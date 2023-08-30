@@ -149,12 +149,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         backgroundColor: Colors.black,
                         shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(8))),
+                        fixedSize: const Size(120, 20),
                         elevation: 2.0,
                       ),
                       child: const Text(
                         "Reset",
                         style: TextStyle(
-                          fontSize: 15.0,
+                          fontSize: 16.0,
                         ),
                       ),
                     ),
@@ -190,12 +191,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         backgroundColor: Colors.black,
                         shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(8))),
+                        fixedSize: const Size(120,20),
                         elevation: 2.0,
                       ),
                       child: const Text(
                         "Calculate",
                         style: TextStyle(
-                          fontSize: 15.0,
+                          fontSize: 16.0,
                         ),
                       ),
                     ),
