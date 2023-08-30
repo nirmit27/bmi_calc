@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 const Text(
                   "Body Mass Index",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 21,
@@ -161,11 +161,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        var wt = int.parse(wtController.text);
-                        var ft = int.parse(ftController.text);
-                        var inc = int.parse(inController.text);
-
                         if (_formKey.currentState!.validate()) {
+                          var wt = int.parse(wtController.text);
+                          var ft = int.parse(ftController.text);
+                          var inc = int.parse(inController.text);
                           var totalM = (((ft * 12) + inc) * (2.54)) / 100;
 
                           var bmi = wt / pow(totalM, 2);
@@ -191,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         backgroundColor: Colors.black,
                         shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(8))),
-                        fixedSize: const Size(120,20),
+                        fixedSize: const Size(120, 20),
                         elevation: 2.0,
                       ),
                       child: const Text(
